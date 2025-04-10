@@ -30,8 +30,9 @@ public class Product {
     @Column(nullable = false, unique = true)
     private String sku;
 
-    @Column(nullable = false)
-    private String category;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "category_id", nullable = false)
+    private Category category;
 
     @JdbcTypeCode(SqlTypes.JSON)
     @Column(columnDefinition = "jsonb")
@@ -44,10 +45,10 @@ public class Product {
 
     @Column(name = "created_at", updatable = false)
     @CreationTimestamp
-    private LocalDateTime createdAt = LocalDateTime.now();
+    private LocalDateTime createdAt;
 
     @Column(name = "updated_at")
     @UpdateTimestamp
-    private LocalDateTime updatedAt = LocalDateTime.now();
+    private LocalDateTime updatedAt;
 
 }
