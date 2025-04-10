@@ -9,9 +9,9 @@ public interface InventoryService {
 
     InventoryDto getProductInventoryLevel(Long productId);
 
-    InventoryDto updateProductInventoryLevel(Long productId, Integer newQuantity);
+    InventoryDto updateProductInventoryLevel(Long productId, String location, Integer newQuantity);
 
-    InventoryDto adjustProductInventory(Long productId, Integer quantityChange, String reason);
+    InventoryDto adjustProductInventory(Long productId, String location, Integer quantityChange);
 
     List<InventoryDto> getProductsBelowLowStockThreshold();
 }
