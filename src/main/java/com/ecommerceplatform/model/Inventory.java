@@ -32,9 +32,4 @@ public class Inventory {
     private LocalDateTime lastStockUpdate;
 
     private String location;
-
-    @PreUpdate
-    protected void onUpdate() {
-        lastStockUpdate = LocalDateTime.now();
-    }
 }
