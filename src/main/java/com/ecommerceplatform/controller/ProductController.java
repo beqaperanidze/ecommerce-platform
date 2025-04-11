@@ -9,7 +9,7 @@ import java.net.URI;
 import java.util.List;
 
 @RestController
-@RequestMapping("/products")
+@RequestMapping("/product")
 public class ProductController {
     private final ProductService productService;
 
@@ -20,7 +20,7 @@ public class ProductController {
     @PostMapping
     public ResponseEntity<ProductDto> createProduct(@RequestBody ProductDto productDto) {
         ProductDto createdProduct = productService.createProduct(productDto);
-        return ResponseEntity.created(URI.create("/products/" + createdProduct.getProductId())).body(createdProduct);
+        return ResponseEntity.created(URI.create("/product/" + createdProduct.getProductId())).body(createdProduct);
     }
 
     @GetMapping
